@@ -1,14 +1,22 @@
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-window.addEventListener("scroll", () => {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    scrollToTopBtn.classList.add("show");
-  } else {
-    scrollToTopBtn.classList.remove("show");
-  }
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
 });
 
-scrollToTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// Show scroll-to-top button only when scrolled down
+const scrollBtn = document.getElementById('scrollToTopBtn');
+window.onscroll = function() {
+  if (window.scrollY > 300) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
 

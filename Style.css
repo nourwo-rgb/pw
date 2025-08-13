@@ -85,6 +85,13 @@ body{
     display: block;
 }
 
+/* Highlight active nav link */
+.navbar a.active, .navbar a:hover {
+    color: #ff9800;
+    font-weight: bold;
+    border-bottom: 2px solid #ff9800;
+}
+
 /* ================= HERO SECTION ================= */
 .hero {
     width: 100%;
@@ -594,10 +601,10 @@ section {
     box-shadow: 0 2px 8px rgba(49,90,57,0.07);
 }
 .btn:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 4px 16px var(--main-color);
+    background: #ff9800;
+    color: #fff;
+    transform: scale(1.05);
+    transition: 0.2s;
 }
 
 /* ================= SCROLL TO TOP BUTTON ================= */
