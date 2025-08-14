@@ -20,3 +20,26 @@ window.onscroll = function() {
   }
 };
 
+// ======= MOBILE NAVBAR TOGGLE =======
+const navToggle = document.querySelector('.nav-toggle');
+const navbar = document.querySelector('.navbar');
+
+if (navToggle && navbar) {
+  navToggle.addEventListener('click', function () {
+    navbar.classList.toggle('active');
+    // Update aria-expanded for accessibility
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !expanded);
+  });
+
+  // Optional: Hide navbar after clicking a link (for better UX)
+  navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        navbar.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
+
